@@ -17,6 +17,7 @@ body{
     border-radius:1rem ;
     min-height: 30vh;
     min-width: 30vw;
+    position: relative;
 }
 form{
     margin-top: 2rem;
@@ -38,6 +39,7 @@ form input{
 #errMsg{
     display: none;
     color: red;
+    position: absolute;
 }
 
 .dropdown{
