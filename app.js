@@ -4,37 +4,37 @@ const apiKey = API_KEY;
 const baseURL = `https://v6.exchangerate-api.com/v6/${apiKey}`;
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button")
-const fromCurrency = document.querySelector(".from select"); 
-const toCurrecy=document.querySelector(".to select");
+const fromCurrency = document.querySelector(".from select");
+const toCurrecy = document.querySelector(".to select");
 let msg = document.querySelector(".msg");
-   
+
 for (let select of dropdowns) {
   for (let currCode in countryList) {
     let newOption = document.createElement("option");
     newOption.innerText = currCode;
-    newOption.value= currCode;
-    if(select.name==="from"&&currCode==="USD"){
-      newOption.selected="selected";
+    newOption.value = currCode;
+    if (select.name === "from" && currCode === "USD") {
+      newOption.selected = "selected";
     }
-    if(select.name==="to"&&currCode==="INR"){
-      newOption.selected="selected";
+    if (select.name === "to" && currCode === "INR") {
+      newOption.selected = "selected";
     }
     select.append(newOption);
   }
 
 }
-for(let select of dropdowns ){
-  select.addEventListener("change",(evt)=>{
+for (let select of dropdowns) {
+  select.addEventListener("change", (evt) => {
     updateFlag(evt.target);
   });
 }
-const updateFlag=(element)=>{
- let curencyCode = element.value;
- let countryCode= countryList[curencyCode]; 
+const updateFlag = (element) => {
+  let curencyCode = element.value;
+  let countryCode = countryList[curencyCode];
   console.log(countryCode);
-  let newSrc =`https://flagsapi.com/${countryCode}/flat/64.png`
-  let img=element.parentElement.querySelector("img");
-  img.src=newSrc;
+  let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`
+  let img = element.parentElement.querySelector("img");
+  img.src = newSrc;
 };
 btn.addEventListener("click", (evt) => {
   //it makes the button to not apply any default changes
@@ -61,4 +61,3 @@ btn.addEventListener("click", (evt) => {
     msg.innerText="Enter the amount to see the exchange rate.";
   }
 });
-
