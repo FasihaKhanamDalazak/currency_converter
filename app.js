@@ -59,5 +59,6 @@ btn.addEventListener("click", (evt) => {
     errMsg.style.display= "block";
     input.value="";
     msg.innerText="Enter amount to see exchange rate.";
+    console.log(msg);
   }
 });
