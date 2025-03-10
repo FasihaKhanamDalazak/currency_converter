@@ -58,6 +58,6 @@ btn.addEventListener("click", (evt) => {
   else{
     errMsg.style.display= "block";
     input.value="";
-    msg.innerText="Enter amount to convert.";
+     msg.innerText="Enter amount to see exchange rate.";
   }
 });
