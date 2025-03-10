@@ -39,6 +39,7 @@ form input{
     display: none;
     color: red;
 }
+
 .dropdown{
     display: flex;
     justify-content: space-between;
