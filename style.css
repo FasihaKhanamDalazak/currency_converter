@@ -41,7 +41,9 @@ form input{
     color: red;
     position: absolute;
 }
-
+.amount{
+    position: relative;
+}
 .dropdown{
     display: flex;
     justify-content: space-between;
