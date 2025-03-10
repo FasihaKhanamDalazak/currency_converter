@@ -36,22 +36,29 @@ const updateFlag=(element)=>{
   let img=element.parentElement.querySelector("img");
   img.src=newSrc;
 };
-btn.addEventListener("click",(evt)=>{
+btn.addEventListener("click", (evt) => {
   //it makes the button to not apply any default changes
   evt.preventDefault();
   let input = document.querySelector("#amountIP");
+  let errMsg = document.querySelector("#errMsg");
   amount = input.value;
-  // console.log(fromCurrency,toCurrecy);
-  const url = `${baseURL}/pair/${fromCurrency.value}/${toCurrecy.value}`;
-  fetch(url).then((response)=>{
-   return response.json(); })
-   .then((data)=>{
-    let rate = data.conversion_rate;
-    let finalAmount = amount*rate;
-    msg.innerText= `${amount}${fromCurrency.value}=${finalAmount
-      
-    }${toCurrecy.value}`;
-   })
-   
-})
+  if (amount > 0) {
+    errMsg.style.display="none";
+    // console.log(fromCurrency,toCurrecy);
+    const url = `${baseURL}/pair/${fromCurrency.value}/${toCurrecy.value}`;
+    fetch(url).then((response) => {
+      return response.json();
+    })
+      .then((data) => {
+        let rate = data.conversion_rate;
+        let finalAmount = amount * rate;
+        msg.innerText = `${amount} ${fromCurrency.value} = ${finalAmount} ${toCurrecy.value}`;
+      })
+  }
+  else{
+    errMsg.style.display= "block";
+    input.value="";
+    msg.innerText="Enter the amount to see the exchange rate.";
+  }
+});
 
