@@ -35,7 +35,10 @@ form input{
     padding-left: 0.5rem;
 
 }
-
+#errMsg{
+    display: none;
+    color: red;
+}
 .dropdown{
     display: flex;
     justify-content: space-between;
@@ -67,6 +70,7 @@ form input{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     color: #1b263b;
+    font-weight: 500;
 }
 form button{
     height: 3rem;
